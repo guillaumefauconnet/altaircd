@@ -1,21 +1,19 @@
-var assert = require('assert')
-  , path = require('path')
-  , User = require(path.join(__dirname, '..', 'lib', 'user'))
-  ;
+const assert = require('assert');
+const path = require('path');
+const User = require(path.join(__dirname, '..', 'lib', 'user'));
 
-module.exports = {
-  'User': {
-    'test timeout calculation': function(done) {
-      var server = {
+describe('User', function () {
+    it('test timeout calculation', function (done) {
+        const server = {
             config: { idleTimeout: 60 }
-          }
-        , user = new User(null, server);
+        };
+        
+        const user = new User(null, server);
 
-      assert.ok(!user.hasTimedOut());
-      user.lastPing = (Date.now() - 61000);
-      assert.ok(user.hasTimedOut());
+        assert.ok(!user.hasTimedOut());
+        user.lastPing = (Date.now() - 61000);
+        assert.ok(user.hasTimedOut());
 
-      done();
-    }
-  }
-};
+        done();
+    })
+})

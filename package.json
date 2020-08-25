@@ -10,7 +10,7 @@
         "man": "./doc/man"
     },
     "scripts": {
-        "test": "make test",
+        "test": "./node_modules/.bin/mocha -c ./test/*.test.js",
         "watch": "node-dev ./bin/ircd.js",
         "dev": "node-dev ./bin/ircd.js"
     },
