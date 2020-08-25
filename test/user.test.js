@@ -1,6 +1,6 @@
 var assert = require('assert')
   , path = require('path')
-  , User = require(path.join(__dirname, '..', 'lib', 'user')).User
+  , User = require(path.join(__dirname, '..', 'lib', 'user'))
   ;
 
 module.exports = {
